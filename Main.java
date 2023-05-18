@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, RateLimitException {
         //remember to fill in your own assignment number, username, and api key
-        Bridges bridges = new Bridges(ASSIGNMENT_NUMBER, "USERNAME", "API_KEY");
+        Bridges bridges = new Bridges(1, "jpreble", "250600616660");
         bridges.setTitle("Shortest path");
         bridges.setDescription("Shortest path across New York City (created with data from OpenStreetMaps)");
 

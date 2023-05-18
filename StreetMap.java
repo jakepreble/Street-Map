@@ -15,6 +15,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
     // 1. a double called 'distance' (shortest known distance from start)
     // 2. an integer called 'previous' (previous vertex in path)
     //YOUR CODE HERE:
+    private record VertexInfo(double distance, int previous);
 
     //if there is no previous vertex, 'previous' is set to -1
     private final int NO_PREVIOUS = -1;
@@ -31,6 +32,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //add a vertex with key 'i' to the graph
             //set its location to the cartesian coordinates of vertices[i]
             //YOUR CODE HERE:
+
         }
 
         for(OsmEdge edge : edges) {
