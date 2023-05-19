@@ -5,6 +5,7 @@ import bridges.base.GraphAdjList;
 import bridges.data_src_dependent.OsmData;
 import bridges.data_src_dependent.OsmEdge;
 import bridges.data_src_dependent.OsmVertex;
+import bridges.base.Element<E>;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -15,7 +16,8 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
     // 1. a double called 'distance' (shortest known distance from start)
     // 2. an integer called 'previous' (previous vertex in path)
     //YOUR CODE HERE:
-    private record VertexInfo(double distance, int previous);
+    private VertexInfo vertexInfo;
+    
 
     //if there is no previous vertex, 'previous' is set to -1
     private final int NO_PREVIOUS = -1;
@@ -32,6 +34,14 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //add a vertex with key 'i' to the graph
             //set its location to the cartesian coordinates of vertices[i]
             //YOUR CODE HERE:
+            addVertex((Integer)i, 0);
+            //vertices[i].setLocation(getCartesian_coord()[0], getCartesian_coord()[1]);
+            vertices[i];
+            
+            
+
+            
+            
 
         }
 

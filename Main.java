@@ -21,5 +21,6 @@ public class Main {
         map.shortestPath(map.outerVertex(1, -1), map.outerVertex(-1, 1), new Color("red"));
         bridges.setDataStructure(map);
         bridges.visualize();
+        
     }
 }
