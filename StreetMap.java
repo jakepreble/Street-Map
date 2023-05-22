@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.HashSet;
+
 import bridges.base.Color;
 import bridges.base.Edge;
 import bridges.base.Element;
@@ -5,9 +8,6 @@ import bridges.base.GraphAdjList;
 import bridges.data_src_dependent.OsmData;
 import bridges.data_src_dependent.OsmEdge;
 import bridges.data_src_dependent.OsmVertex;
-import bridges.base.Element<E>;
-import java.util.HashMap;
-import java.util.HashSet;
 
 public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
     private final int numVertices;
@@ -35,14 +35,10 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //set its location to the cartesian coordinates of vertices[i]
             //YOUR CODE HERE:
             addVertex((Integer)i, 0);
-            //vertices[i].setLocation(getCartesian_coord()[0], getCartesian_coord()[1]);
-            vertices[i];
-            
-            
-
-            
-            
-
+           
+            double x = vertices[i].getCartesian_coord()[0];
+            double y = vertices[i].getCartesian_coord()[1];
+            getVertex(i).setLocation(x,y);
         }
 
         for(OsmEdge edge : edges) {
@@ -50,6 +46,8 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //then add an edge going in the opposite direction
             //the associated data for both should be edge.getDistance()
             //YOUR CODE HERE:
+            addEdge(edge.getSource(), edge.getDestination());
+            addEdge(edge.getDestination(), edge.getSource());
         }
     }
 
@@ -66,6 +64,11 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //calculate the weight of 'point'
             //if it is greater than 'maxWeight', update 'maxWeight' and 'index'
             //YOUR CODE HERE:
+            double weight = (double) (weightX * point.getLocationX() + weightY * point.getLocationY());
+            if(weight > maxWeight){
+                maxWeight = weight;
+                index = i;
+            }
         }
 
         return index;
@@ -75,13 +78,16 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
     //the distance of vertex 'i' from the start is info().get(i).distance()
     private int nearestUnvisitedVertex(HashMap<Integer, VertexInfo> info, HashSet<Integer> unvisited) {
         //YOUR CODE HERE:
+         int nearestKey = 0;
+         
+         for(HasMap)
     }
 
     //draw a path from the starting vertex to 'point'
     private void pathFromStart(HashMap<Integer, VertexInfo> info, int point, Color color) {
         //set the color of vertex 'point' to 'color'
         //YOUR CODE HERE:
-
+        
         while(info.get(point).previous() != NO_PREVIOUS) {
             //set 'point' to the vertex before it
             //then set the color of vertex 'point' to 'color'
