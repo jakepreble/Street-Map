@@ -79,19 +79,29 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
     private int nearestUnvisitedVertex(HashMap<Integer, VertexInfo> info, HashSet<Integer> unvisited) {
         //YOUR CODE HERE:
          int nearestKey = 0;
+         double distance = info.get(nearestKey).getDistance();
+         for(int i = 0; i < unvisited.size(); i++){
+            if(info.get(i).getDistance() < distance){
+                nearestKey = i;
+                distance = info.get(nearestKey).getDistance();
+            }
+         } return nearestKey;
          
-         for(HasMap)
     }
 
     //draw a path from the starting vertex to 'point'
     private void pathFromStart(HashMap<Integer, VertexInfo> info, int point, Color color) {
         //set the color of vertex 'point' to 'color'
         //YOUR CODE HERE:
+        getVertex(point).setColor(color);
         
-        while(info.get(point).previous() != NO_PREVIOUS) {
+        while(info.get(point).getPrevious() != NO_PREVIOUS) {
             //set 'point' to the vertex before it
             //then set the color of vertex 'point' to 'color'
             //YOUR CODE HERE:
+            point--;
+            getVertex(point).setColor(color);
+            
         }
     }
 
@@ -103,11 +113,12 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
         for(int i = 0; i < numVertices; i++) {
             //add 'i' to 'unvisited'
             //YOUR CODE HERE:
-
+            unvisited.add(i);
             //add a VertexInfo object to 'info' with key 'i'
             //the 'distance' field should be 0 if 'i' is the start vertex, and infinity otherwise
             //the 'previous' field should be NO_PREVIOUS
             //YOUR CODE HERE:
+            
         }
 
         while(true) {
