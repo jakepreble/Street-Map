@@ -118,7 +118,8 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //the 'distance' field should be 0 if 'i' is the start vertex, and infinity otherwise
             //the 'previous' field should be NO_PREVIOUS
             //YOUR CODE HERE:
-            
+            if(i == start) info.put(i, new VertexInfo(0,NO_PREVIOUS));
+            else info.put(i, new VertexInfo(Double.POSITIVE_INFINITY, NO_PREVIOUS));
         }
 
         while(true) {
@@ -126,25 +127,37 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
 
             //if the distance value of 'current' is infinity, quit the method with a 'return' statement
             //YOUR CODE HERE:
-
+            if(info.get(current).getDistance() == Double.POSITIVE_INFINITY) return;
             //if the current vertex is 'end', use 'pathFromStart' to draw a path
             //then quit the method with a 'return' statement
             //YOUR CODE HERE:
+            if(info.get(current) == info.get(numVertices-1)){
+                pathFromStart(info, current, color);
+            }
 
             for(Edge<Integer, Double> edge : this.getAdjacencyList(current)) {
                 //get the destination of the edge and assign it to a variable called 'vertex'
                 //if 'vertex' has already been visited, go to the next edge with a 'continue' statement
                 //YOUR CODE HERE:
-
+                int vertex = edge.getTo();
+                for(Integer unvist : unvisited){
+                    if(vertex == unvist) continue;
+                }
                 //calculate an alternative distance (distance to 'current' + length of edge)
                 //if the alternative is less than the distance already known,
                 //  create a new VertexInfo object associated with 'vertex'; the 'distance' field
                 //  should be the alternative distance and the 'previous' field should be 'current'
                 //YOUR CODE HERE:
+                double altD = info.get(current).getDistance() + (edge.getTo() - edge.getFrom());
+                if( altD < info.get(current).getDistance()){
+                    VertexInfo v = new VertexInfo(altD, current);
+                }
             }
 
             //remove 'current' from 'unvisited'
             //YOUR CODE HERE:
+            unvisited.remove((Integer)current);
+            
         }
     }
 }
