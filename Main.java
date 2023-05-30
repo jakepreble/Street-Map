@@ -11,7 +11,7 @@ public class Main {
         Bridges bridges = new Bridges(1, "jpreble", "250600616660");
         bridges.setTitle("Shortest path");
         bridges.setDescription("Shortest path across New York City (created with data from OpenStreetMaps)");
-
+       
         //get NYC map from bridges data server
         DataSource ds = bridges.getDataSource();
         OsmData data = ds.getOsmData("New York, New York", "secondary");
@@ -21,6 +21,7 @@ public class Main {
         map.shortestPath(map.outerVertex(1, -1), map.outerVertex(-1, 1), new Color("red"));
         bridges.setDataStructure(map);
         bridges.visualize();
+        System.out.print("shayan");
         
     }
 }

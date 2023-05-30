@@ -34,11 +34,12 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //add a vertex with key 'i' to the graph
             //set its location to the cartesian coordinates of vertices[i]
             //YOUR CODE HERE:
-            addVertex((Integer)i, 0);
+            addVertex(i, 0);
            
             double x = vertices[i].getCartesian_coord()[0];
             double y = vertices[i].getCartesian_coord()[1];
             getVertex(i).setLocation(x,y);
+            
         }
 
         for(OsmEdge edge : edges) {
@@ -46,8 +47,8 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //then add an edge going in the opposite direction
             //the associated data for both should be edge.getDistance()
             //YOUR CODE HERE:
-            addEdge(edge.getSource(), edge.getDestination());
-            addEdge(edge.getDestination(), edge.getSource());
+            addEdge(edge.getSource(), edge.getDestination(), edge.getDistance());
+            addEdge(edge.getDestination(), edge.getSource(), edge.getDistance());
         }
     }
 
