@@ -139,6 +139,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
                 //get the destination of the edge and assign it to a variable called 'vertex'
                 //if 'vertex' has already been visited, go to the next edge with a 'continue' statement
                 //YOUR CODE HERE:
+                
                 int vertex = edge.getTo();
                 for(Integer unvist : unvisited){
                     if(vertex == unvist) continue;
@@ -150,7 +151,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
                 //YOUR CODE HERE:
                 double altD = info.get(current).getDistance() + (edge.getTo() - edge.getFrom());
                 if( altD < info.get(current).getDistance()){
-                    VertexInfo v = new VertexInfo(altD, current);
+                     VertexInfo v = new VertexInfo(altD, current);
                 }
             }
 
