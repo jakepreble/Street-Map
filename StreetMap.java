@@ -65,7 +65,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //calculate the weight of 'point'
             //if it is greater than 'maxWeight', update 'maxWeight' and 'index'
             //YOUR CODE HERE:
-            double weight = (double) (weightX * point.getLocationX() + weightY * point.getLocationY());
+            double weight = weightX * point.getLocationX() + weightY * point.getLocationY();
             if(weight > maxWeight){
                 maxWeight = weight;
                 index = i;
