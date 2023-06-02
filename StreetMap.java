@@ -100,7 +100,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //set 'point' to the vertex before it
             //then set the color of vertex 'point' to 'color'
             //YOUR CODE HERE:
-            point--;
+            point = info.get(point).getPrevious();
             getVertex(point).setColor(color);
             
         }
@@ -132,7 +132,7 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
             //if the current vertex is 'end', use 'pathFromStart' to draw a path
             //then quit the method with a 'return' statement
             //YOUR CODE HERE:
-            if(info.get(current) == info.get(numVertices-1)){
+            if(info.get(current).equals(info.get(end))){
                 pathFromStart(info, current, color);
             }
 
@@ -142,23 +142,24 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
                 //YOUR CODE HERE:
                 
                 int vertex = edge.getTo();
-                for(Integer unvist : unvisited){
-                    if(vertex == unvist) continue;
-                }
+                if(unvisited.contains(vertex)) continue;
+                
                 //calculate an alternative distance (distance to 'current' + length of edge)
                 //if the alternative is less than the distance already known,
                 //  create a new VertexInfo object associated with 'vertex'; the 'distance' field
                 //  should be the alternative distance and the 'previous' field should be 'current'
                 //YOUR CODE HERE:
-                double altD = info.get(current).getDistance() + (edge.getTo() - edge.getFrom());
+
+                
+                double altD = info.get(current).getDistance() + (edge.getTo()-edge.getFrom());
                 if( altD < info.get(current).getDistance()){
-                     VertexInfo v = new VertexInfo(altD, current);
+                     VertexInfo vInfo = new VertexInfo(altD, current); 
                 }
             }
 
             //remove 'current' from 'unvisited'
             //YOUR CODE HERE:
-            unvisited.remove((Integer)current);
+            unvisited.remove(current);
             
         }
     }
