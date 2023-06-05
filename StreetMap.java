@@ -142,18 +142,18 @@ public class StreetMap extends GraphAdjList<Integer, Integer, Double> {
                 //YOUR CODE HERE:
                 
                 int vertex = edge.getTo();
-                if(unvisited.contains(vertex)) continue;
+                if(!unvisited.contains(vertex)) continue;
                 
-                //calculate an alternative distance (distance to 'current' + length of edge)
+                //calculate an alternative distance (distance to 'current' + length ofSSS edge)
                 //if the alternative is less than the distance already known,
                 //  create a new VertexInfo object associated with 'vertex'; the 'distance' field
                 //  should be the alternative distance and the 'previous' field should be 'current'
                 //YOUR CODE HERE:
 
                 
-                double altD = info.get(current).getDistance() + (edge.getTo()-edge.getFrom());
-                if( altD < info.get(current).getDistance()){
-                     VertexInfo vInfo = new VertexInfo(altD, current); 
+                double altD = info.get(current).getDistance() + edge.getEdgeData();
+                if( altD < info.get(vertex).getDistance()){
+                     info.put(vertex, new VertexInfo(altD, current));
                 }
             }
 

@@ -19,11 +19,11 @@ public class Main {
         //find shortest path from northwest to southeast
         StreetMap map = new StreetMap(data);
         //System.out.println(map.outerVertex(1, -1));
-       
+        
         map.shortestPath(map.outerVertex(1, -1), map.outerVertex(-1, 1), new Color("red"));
         bridges.setDataStructure(map);
         bridges.visualize();
-        System.out.print("shayan");
+        System.out.print("test");
         
     }
 }
