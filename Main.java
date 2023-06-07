@@ -18,8 +18,13 @@ public class Main {
         System.out.print("test0");
         // find shortest path from northwest to southeast
         StreetMap map = new StreetMap(data);
+<<<<<<< Updated upstream
         // System.out.println(map.outerVertex(1, -1));
         System.out.print("test1");
+=======
+        //System.out.println(map.outerVertex(1, -1));
+        
+>>>>>>> Stashed changes
         //map.shortestPath(map.outerVertex(1, -1), map.outerVertex(-1, 1), new Color("red"));
         bridges.setDataStructure(map);
         bridges.visualize();
